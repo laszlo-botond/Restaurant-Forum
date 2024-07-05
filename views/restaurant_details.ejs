@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Restaurant details</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/forms/guest_form.js"></script>
+  <script src="/restaurant_details_script.js"></script>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+  <h1 class="title"><%= restaurant.RestaurantName %></h1>
+
+  <%- include('partials/adminpanel') %>
+
+  <h2>
+    Image gallery
+  </h2>
+
+  <div class="rowflex_s">
+    <% pictures.forEach((p) => { %>
+      <div>
+        <img src=<%= p.PicName %> alt="A picture of the restaurant" class="customPic">
+        <% if (typeof(username) !== 'undefined' && restaurant.OwnerName === username) { %>
+          <button id="pic_<%= p.PicName %>" class="picDeleteButton">DELETE</button>
+        <% } %>
+      </div>
+    <% }) %>
+
+    <div>
+      <form action="/submit_pic" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%= restaurant.ID %>">
+        <h2>Upload more images!</h2>
+        <table class="formTable">
+          <tbody>
+            <tr>
+              <td>Image file</td>
+              <td>
+                <input required type="file" id="restaurant_img" name="restaurant_img">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <h2>
+    Reservations
+  </h2>
+
+  <div class="rowflex_s">
+    <% reservations.forEach((r) => { %>
+      <div id="div_reservation_<%= r.ReservationID %>" <% if (r.Confirmed === 0) { %> class="pending" <% } %>>
+        <h2>
+          <% if (r.Confirmed === 0) { %>
+            Pending
+          <% } %>
+          Reservation by <%= r.FirstName %> <%= r.LastName %>
+        </h2>
+        <ul>
+          <li>Date: <%= r.ReservationDate %></li>
+          <li>Time: <%= r.ReservationTime %></li>
+        </ul>
+        <% if (typeof (ownReservationIDs) != "undefined" && ownReservationIDs.includes(r.ReservationID)) { %>
+          <button id="reservation_<%= r.ReservationID %>" class="reservationDeleteButton">DELETE</button>
+        <% } %>
+      </div>
+    <% }) %>
+
+    <div>
+      <form action="/submit_reservation" method="post">
+        <input type="hidden" name="id" value="<%= restaurant.ID %>">
+        <h2>Make a reservation!</h2>
+        <table class="formTable">
+          <tbody>
+            <tr>
+              <td>Reservation date</td>
+              <td>
+                <input required type="date" id="res_date" name="res_date"><br>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Reservation time</td>
+              <td>
+                <input required type="time" id="res_time" name="res_time">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button type="submit">Submit</button>
+
+        <% if (typeof reservationError != "undefined") { %>
+          <p class="error">
+            <b>Error:</b>
+            <%=reservationError%>
+          </p>
+        <% } %>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <a href="/index">Go back</a>
+  </footer>
+
+</body>
+
+</html>

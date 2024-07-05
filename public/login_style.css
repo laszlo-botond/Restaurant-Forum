@@ -1,0 +1,107 @@
+body {
+  background-color: rgb(10, 110, 110);
+  color: white;
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px auto 10px auto;
+}
+
+input {
+  width: 90%;
+  background-color: rgb(0, 150, 150);
+  border: 2px solid white;
+  color: white;
+}
+
+input:focus,
+div.wrapperDiv > div:focus-within {
+  outline: none;
+  border-style: solid;
+  border-color: rgb(192, 255, 238);
+}
+
+div.wrapperDiv {
+  display: flex;
+  flex-direction: row;
+  border: 5px solid rgb(0, 150, 150);
+  border-radius: 20px;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  height: fit-content;
+}
+
+div.wrapperDiv > div {
+  width: 30%;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px 5px 5px 10px;
+}
+
+div.wrapperDiv > div:nth-child(2) {
+  align-content: center;
+  width: 40%;
+}
+
+div.wrapperDiv > div.fillDiv {
+  width: 70%;
+}
+
+div.wrapperDiv > div > form {
+  display: block;
+  width: fit-content;
+  margin: auto;
+}
+
+div.wrapperDiv > div:nth-child(2) h2,
+div.wrapperDiv > div:nth-child(2) table {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  margin: auto;
+}
+
+p.errorText {
+  display: block;
+  margin: auto;
+  color: rgb(192, 255, 238);
+  font-weight: bold;
+  text-shadow: 2px 2px 2px red;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  div.wrapperDiv {
+    display: flex;
+    flex-direction: column;
+    border: 5px solid rgb(0, 150, 150);
+    width: 95%;
+    margin: auto;
+    height: fit-content;
+  }
+
+  div.wrapperDiv > div {
+    width: 80%;
+    border: 2px solid white;
+    margin: 5px auto;
+    padding: 5px;
+  }
+
+  div.wrapperDiv > div:nth-child(2) {
+    align-content: center;
+    width: 80%;
+  }
+}

@@ -1,0 +1,78 @@
+/* admin panel */
+
+div.admin {
+  padding-top: 1px;
+  color: rgb(10, 110, 110);
+  background-color: burlywood;
+  background-image: linear-gradient(antiquewhite, rgb(192, 255, 238));
+
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+div.admin > div.content {
+  display: flex;
+  flex-direction: row;
+}
+
+div.admin > div.content > div {
+  width: 25%;
+  min-height: 50px;
+  border: 5px solid rgb(10, 110, 110);
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.line {
+  width: 75%;
+  margin: 40px auto;
+  height: 1px;
+  border-top: 2px solid rgb(0, 0, 102);
+}
+
+div.line + h1 {
+  margin: auto;
+  color: rgb(0, 0, 102);
+}
+
+div.admin > div.content ul {
+  font-size: 20px;
+  color: rgb(0, 0, 102);
+}
+
+div.admin > div.content li {
+  margin-bottom: 10px;
+}
+
+div.admin > div.content button {
+  background-color: inherit;
+}
+
+div.admin > div.content button:hover {
+  background-color: white;
+}
+
+button.adminDelete {
+  display: block;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  div.admin > div.content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.admin > div.content > div {
+    width: 90%;
+  }
+}

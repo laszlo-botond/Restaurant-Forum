@@ -1,0 +1,41 @@
+<% if (typeof(username) !== 'undefined' && restaurant.OwnerName === username) { %>
+  <link rel="stylesheet" href="./style_admin.css">
+  <script src="/forms/guest_form.js"></script>
+
+  <div class="admin">
+    <div class="line"></div>
+    <h1>Admin panel</h1>
+    <h2>As the owner of this restaurant, only you have access to this section.</h2>
+    <div class="line"></div>
+
+    <div class="content">
+      <div>
+        <h2>Approve reservations</h2>
+        <ul>
+          <% let count = 0; reservations.forEach((r) => { %>
+            <% if (r.Confirmed === 0) { %>
+              <li>
+                <%= r.FirstName %> <%= r.LastName %>: <%= r.ReservationDate %> at <%= r.ReservationTime %><br>
+                <button id="accept_pending_reservation_<%= r.ReservationID %>" class="acceptPending">Accept</button>
+                <button id="delete_pending_reservation_<%= r.ReservationID %>" class="deletePending">Delete</button>
+              </li>
+            <% count += 1; } %>
+          <% }) %>
+        </ul>
+        <% if (count === 0) { %>
+          <p>There are no pending reservations.</p>
+        <% } %>
+      </div>
+      <div>
+        <h2>Delete past reservations</h2>
+        <p>Clears both confirmed and pending requests.</p>
+        <button id="deletePast_<%=restaurant.ID%>" class="adminDelete">Delete</button>
+      </div>
+      <div>
+        <h2>Delete all pictures</h2>
+        <p>This action cannot be undone.</p>
+        <button id="deletePics_<%=restaurant.ID%>" class="adminDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+<% } %>

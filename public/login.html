@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./login_style.css">
+  <title>Log In - Restaurant forum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./login_script.js"></script>
+</head>
+
+<body>
+  <h1>Log in to your account!</h1>
+
+  <div class="wrapperDiv">
+    <div>
+      <h2>Why log in?</h2>
+      <p>
+        By logging in, you gain access to more features on the site, such as:
+      </p>
+      <ul>
+        <li>Making reservations</li>
+        <li>Deleting reservations</li>
+        <li>Posting restaurants</li>
+        <li>Posting pictures of restaurants</li>
+      </ul>
+    </div>
+
+    <div>
+      <form action="/login" method="post">
+        <h2>
+          Enter your username and password below:
+        </h2>
+        <table class="formTable">
+          <tbody>
+            <tr>
+              <td>Username</td>
+              <td>
+                <input required type="text" id="username" name="username">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Password</td>
+              <td>
+                <input required type="password" id="password" name="password">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" id="loginButton">Log in</button>
+      </form>
+    </div>
+
+    <div>
+      <h2>Can I trust this site?</h2>
+      <p>
+        When logging in, your password is encrypted. This means:
+      </p>
+      <ul>
+        <li>It isn't stored anywhere in plain text format</li>
+        <li>It can't be seen by server administrators</li>
+      </ul>
+    </div>
+  </div>
+
+  <h1>Don't have an account?</h1>
+  <div class="wrapperDiv">
+      <h1>Register now:</h1>
+    <div class="fillDiv">
+      <form action="/register" method="post">
+        <h2>
+          Enter your new credentials:
+        </h2>
+        <table class="formTable">
+          <tbody>
+            <tr>
+              <td>First Name</td>
+              <td>
+                <input required type="text" id="reg_firstname" name="firstname">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Last Name</td>
+              <td>
+                <input required type="text" id="reg_lastname" name="lastname">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Username</td>
+              <td>
+                <input required type="text" id="reg_username" name="username">
+              </td>
+            </tr>
+
+            <tr>
+              <td>Password</td>
+              <td>
+                <input required type="password" id="reg_password" name="password">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" id="registerButton">Register</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
