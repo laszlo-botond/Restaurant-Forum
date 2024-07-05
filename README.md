@@ -1,1 +1,1 @@
-# Webprogramozás laborfeladatok
+A website for restaurants, using Express JS.
